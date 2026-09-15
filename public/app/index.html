@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign In — Better Than Yesterday</title>
+    <meta
+      name="description"
+      content="Sign in with your User ID to your Better Than Yesterday dashboard and keep your streaks, XP and habit analytics growing."
+    />
+    <meta property="og:title" content="Sign In — Better Than Yesterday" />
+    <meta
+      property="og:description"
+      content="Track habits, streaks, XP and productivity with a dashboard built for consistent daily progress."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/app/styles.css" />
+  </head>
+  <body>
+    <main class="auth-wrap">
+      <div class="auth-grid">
+        <section>
+          <span class="pill">
+            <img src="/better-than-yesterday-logo.jpg" alt="Better Than Yesterday logo" style="height:1.25rem;width:1.25rem;border-radius:.375rem;object-fit:cover" />
+            Daily growth system
+          </span>
+          <img class="logo-lg" src="/better-than-yesterday-logo.jpg" alt="Better Than Yesterday logo" />
+          <h1 class="hero-title">Better <span class="neon-text">Than Yesterday</span></h1>
+          <p class="hero-sub">
+            Become better than yesterday. Track habits, streaks, XP and productivity with a dashboard
+            built for consistent daily progress.
+          </p>
+          <ul class="feature-list">
+            <li class="glass-tile">⚡ Streaks, XP &amp; levels</li>
+            <li class="glass-tile">✨ Live habit analytics</li>
+            <li class="glass-tile">🛡️ Private User ID login</li>
+            <li class="glass-tile">🛠️ Fully editable habits</li>
+          </ul>
+        </section>
+
+        <section class="glass-panel auth-card">
+          <div class="tabs">
+            <button type="button" id="tab-login" class="active">Login</button>
+            <button type="button" id="tab-register">Create Account</button>
+          </div>
+
+          <p id="notice" class="alert ok hide"></p>
+          <p id="error" class="alert err hide"></p>
+
+          <form id="login-form" class="stack">
+            <div>
+              <label class="lbl" for="loginId">User ID</label>
+              <input class="field" id="loginId" placeholder="your-user-id" autocomplete="username" required />
+            </div>
+            <div>
+              <label class="lbl" for="loginPw">Password</label>
+              <input class="field" id="loginPw" type="password" placeholder="••••••••" autocomplete="current-password" required />
+            </div>
+            <div class="row-between">
+              <label class="muted" style="display:flex;align-items:center;gap:.5rem">
+                <input type="checkbox" id="remember" checked style="accent-color: var(--neon-cyan)" /> Remember me
+              </label>
+              <button type="button" class="link-btn" id="forgot">Forgot password?</button>
+            </div>
+            <button type="submit" class="btn-neon" style="width:100%;padding:.8rem">Enter Dashboard</button>
+          </form>
+
+          <form id="register-form" class="stack hide">
+            <div class="two-col">
+              <div>
+                <label class="lbl" for="fullName">Full Name</label>
+                <input class="field" id="fullName" required />
+              </div>
+              <div>
+                <label class="lbl" for="username">Username</label>
+                <input class="field" id="username" required />
+              </div>
+            </div>
+            <div class="two-col">
+              <div>
+                <label class="lbl" for="userId">User ID</label>
+                <input class="field" id="userId" placeholder="3–32 chars" required />
+              </div>
+              <div>
+                <label class="lbl" for="email">Email</label>
+                <input class="field" id="email" type="email" required />
+              </div>
+            </div>
+            <div class="two-col">
+              <div>
+                <label class="lbl" for="password">Password</label>
+                <input class="field" id="password" type="password" required />
+              </div>
+              <div>
+                <label class="lbl" for="confirm">Confirm Password</label>
+                <input class="field" id="confirm" type="password" required />
+              </div>
+            </div>
+            <button type="submit" class="btn-neon" style="width:100%;padding:.8rem">Create Account</button>
+            <p class="small muted">Your account and habits are stored privately in this browser.</p>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <script src="/app/store.js"></script>
+    <script src="/app/auth.js"></script>
+  </body>
+</html>
