@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard — Better Than Yesterday</title>
+    <meta
+      name="description"
+      content="Your daily habit command center: streaks, XP, productivity score, monthly progress grid and live analytics."
+    />
+    <meta property="og:title" content="Dashboard — Better Than Yesterday" />
+    <meta property="og:description" content="Track every habit and become 1% better every day." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/app/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="container topbar">
+        <div class="brand">
+          <img class="neon-ring" src="/better-than-yesterday-logo.jpg" alt="Better Than Yesterday logo" />
+          <div>
+            <p class="brand-name">Better <span class="neon-text">Than Yesterday</span></p>
+            <p class="small muted">Become better than yesterday.</p>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:.75rem">
+          <span class="tag" id="user-tag">@…</span>
+          <button class="btn-ghost" id="signout">Sign out</button>
+        </div>
+      </header>
+
+      <main class="container sections">
+        <section class="glass-panel welcome">
+          <div class="welcome-row">
+            <div>
+              <p class="greet" id="greeting">Good Morning</p>
+              <h1>Hello <span id="first-name">there</span> 👋 <span class="neon-text">Let's become better than yesterday.</span></h1>
+              <p class="quote" id="quote"></p>
+            </div>
+            <div style="text-align:right">
+              <p class="clock" id="clock">--:--:--</p>
+              <p class="small muted" id="today-date"></p>
+              <p class="tag" style="margin-top:.75rem;display:inline-block">
+                Today's progress <strong style="color:var(--primary)" id="score-pill">0%</strong>
+              </p>
+            </div>
+          </div>
+          <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+        </section>
+
+        <section class="stats" id="stats"></section>
+
+        <section class="glass-panel panel">
+          <div class="panel-head">
+            <div>
+              <h2>Today's Habits</h2>
+              <p class="small muted" id="today-sub">tap a habit to cycle its status</p>
+            </div>
+            <button class="btn-neon" id="add-habit">+ Add Habit</button>
+          </div>
+          <div id="habit-list" class="habit-grid"></div>
+        </section>
+
+        <section class="glass-panel panel">
+          <div class="panel-head">
+            <div>
+              <h2 id="month-title">Daily Progress</h2>
+              <p class="small muted">Click a cell to cycle completed → partial → skipped → missed → clear</p>
+            </div>
+            <div class="legend" id="legend"></div>
+          </div>
+          <div class="scroll-x" id="month-grid"></div>
+        </section>
+
+        <section class="charts">
+          <div class="glass-panel panel">
+            <h3>Completion Trend</h3>
+            <p class="small muted" style="margin-bottom:1rem">Last 14 days</p>
+            <div class="chart-box"><canvas id="chart-trend"></canvas></div>
+          </div>
+          <div class="glass-panel panel">
+            <h3>Habit Ranking</h3>
+            <p class="small muted" style="margin-bottom:1rem">Completed days this month</p>
+            <div class="chart-box"><canvas id="chart-ranking"></canvas></div>
+          </div>
+          <div class="glass-panel panel">
+            <h3>Status Mix</h3>
+            <p class="small muted" style="margin-bottom:1rem">This month</p>
+            <div class="chart-box"><canvas id="chart-mix"></canvas></div>
+          </div>
+          <div class="glass-panel panel">
+            <h3>Category Balance</h3>
+            <p class="small muted" style="margin-bottom:1rem">Consistency by area</p>
+            <div class="chart-box"><canvas id="chart-radar"></canvas></div>
+          </div>
+        </section>
+
+        <section class="glass-panel panel hide" id="archived-section">
+          <h3 class="small muted" style="text-transform:uppercase;letter-spacing:.1em;margin-bottom:.75rem">Archived</h3>
+          <div class="chips" id="archived-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <div id="modal-root"></div>
+
+    <script src="/app/store.js"></script>
+    <script src="/app/dashboard.js" defer></script>
+  </body>
+</html>
